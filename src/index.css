@@ -1,0 +1,150 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  height: 100vh;
+}
+
+@font-face {
+  font-family: 'Adequate-ExtraLight';
+  src: url(./assets/fonts/Adequate-ExtraLight.ttf);
+}
+
+@font-face {
+  font-family: "AllagiaDemo";
+  src: url(./assets/fonts/AllagiaDemo.otf);
+}
+
+@font-face {
+  font-family: "CocomatLight-trial";
+  src: url(./assets/fonts/CocomatLight-trial.ttf);
+}
+
+@font-face {
+  font-family: "CocomatUltralight-trial";
+  src: url(./assets/fonts/CocomatUltralight-trial.ttf);
+}
+
+@font-face {
+  font-family: "DawningofaNewDay";
+  src: url(./assets/fonts/DawningofaNewDay.ttf);
+}
+
+@font-face {
+  font-family: "Gribble";
+  src: url(./assets/fonts/Gribble.ttf);
+}
+
+@font-face {
+  font-family: "Infinity";
+  src: url(./assets/fonts/Infinity.ttf);
+}
+
+@font-face {
+  font-family: "JosefinSans-Bold";
+  src: url(./assets/fonts/JosefinSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: "JosefinSans-BoldItalic";
+  src: url(./assets/fonts/JosefinSans-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: "JosefinSans-Italic";
+  src: url(./assets/fonts/JosefinSans-Italic.ttf);
+}
+
+@font-face {
+  font-family: "JosefinSans-Light";
+  src: url(./assets/fonts/JosefinSans-Light.ttf);
+}
+
+@font-face {
+  font-family: "JosefinSans-LightItalic";
+  src: url(./assets/fonts/JosefinSans-LightItalic.ttf);
+}
+
+@font-face {
+  font-family: "JosefinSans-Regular";
+  src: url(./assets/fonts/JosefinSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: "JosefinSans-SemiBold";
+  src: url(./assets/fonts/JosefinSans-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "JosefinSans-SemiBoldItalic";
+  src: url(./assets/fonts/JosefinSans-SemiBoldItalic.ttf);
+}
+
+@font-face {
+  font-family: "JosefinSans-Thin";
+  src: url(./assets/fonts/JosefinSans-Thin.ttf);
+}
+
+@font-face {
+  font-family: "JosefinSans-ThinItalic";
+  src: url(./assets/fonts/JosefinSans-ThinItalic.ttf);
+}
+
+@font-face {
+  font-family: "KdamThmorPro-Regular";
+  src: url(./assets/fonts/KdamThmorPro-Regular.ttf);
+}
+
+@font-face {
+  font-family: "la-sonnambula-demo-ffp";
+  src: url(./assets/fonts/la-sonnambula-demo-ffp.ttf);
+}
+
+@font-face {
+  font-family: "PoiretOne-Regular";
+  src: url(./assets/fonts/PoiretOne-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Tell-Me-A-Joke";
+  src: url(./assets/fonts/Tell-Me-A-Joke.ttf);
+}
+
+@font-face {
+  font-family: "Vonique-64-Bold-Italic";
+  src: url(./assets/fonts/Vonique-64-Bold-Italic.ttf);
+}
+
+@font-face {
+  font-family: "Vonique-64-Bold";
+  src: url(./assets/fonts/Vonique-64-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Vonique-64-Italic";
+  src: url(./assets/fonts/Vonique-64-Italic.ttf);
+}
+
+@font-face {
+  font-family: "picasso";
+  src: url(./assets/fonts/Vonique-92_D.otf);
+}
+
+@font-face {
+  font-family: "gondola-by-picasso";
+  src: url(./assets/fonts/Vonique64.ttf);
+}
+
+
+:root {
+  --main-background-color: 14, 13, 13;
+  --main-background-opacity: 0.7;
+  --main-text-color: white;
+  --send-button-color: 53, 207, 7;
+  --sidebar-width: 15rem;
+  --main-font:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}

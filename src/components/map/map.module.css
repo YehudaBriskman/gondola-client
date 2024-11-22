@@ -1,0 +1,85 @@
+.popup {
+    display: grid;
+    gap: 0.1rem 0.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: center;
+}
+
+.popup>span:nth-child(odd) {
+    font-weight: bold;
+}
+
+.popup>span:nth-child(odd)::after {
+    content: ':';
+}
+
+.buttonsAria {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.5rem;
+}
+
+.buttonsAria>button {
+    width: 100%;
+    text-align: center;
+    border: 4px solid #474747;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: border 0.3s;
+    border-radius: 8px;
+}
+
+.buttonsAria>button:nth-child(2) {
+    margin-left: 4px;
+}
+
+.buttonsAria>button:hover {
+    border: 4px solid #3388ff;
+}
+
+.buttonsAria>button:nth-child(2):hover {
+    border: 4px solid #cc2121;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 1.25em;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 0.5rem;
+}
+
+.map {
+    flex-grow: 1;
+}
+
+.animationMap {
+    animation: zoomInOut 30s linear infinite;
+    transform-origin: center center;
+}
+
+@keyframes zoomInOut {
+    0% {
+        transform: perspective(1000px) scale(1.6) rotateX(8deg) rotateZ(-10deg);
+    }
+
+    25% {
+        transform: perspective(1000px) scale(1.8) rotateX(0deg) rotateZ(0deg);
+    }
+
+    50% {
+        transform: perspective(1000px) scale(2) rotateX(-8deg) rotateZ(10deg);
+    }
+
+    75% {
+        transform: perspective(1000px) scale(1.8) rotateX(0deg) rotateZ(0deg);
+    }
+
+    100% {
+        transform: perspective(1000px) scale(1.6) rotateX(8deg) rotateZ(-10deg);
+    }
+}
+
+.targetIcon {
+    width: 1.5rem;
+}

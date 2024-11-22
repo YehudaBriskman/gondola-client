@@ -1,0 +1,12 @@
+.polygonPoint {
+  color: white;
+  display: grid;
+  align-items: center;
+  height: 2.5rem;
+  gap: 0.2rem;
+  grid-template-columns: 4fr 4fr 1fr 1fr;
+}
+
+.polygonPoint input {
+  font-size: 0.75rem;
+}

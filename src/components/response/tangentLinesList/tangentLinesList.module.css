@@ -1,0 +1,21 @@
+.tangentLine{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 1rem 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.tangentLine:hover {
+    color: rgba(77, 202, 252);
+}
+
+.noTangentLines{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.svgIcon{
+    margin: 0 10px;
+}

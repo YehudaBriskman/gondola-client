@@ -1,0 +1,42 @@
+.mainLayoutOuter {
+    position: absolute;
+    display: grid;
+    place-items: center;
+    z-index: 1000;
+    width: 100vw;
+    height: 100vh;
+}
+
+.mainLayout {
+    display: grid;
+    place-items: center;
+    background-color: rgba(var(--main-background-color), var(--main-background-opacity));
+    width: 80%;
+    height: 70%;
+    color: rgba(var(--main-text-color));
+    border-radius: 36px;
+    padding: 10px;
+}
+
+.sidebarLayout {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    top: 50%;
+    left: 10px;
+    width: var(--sidebar-width);
+    transform: translateY(-50%);
+    max-height: 98%;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.sidebarLayout>* {
+    pointer-events: all;
+    cursor: default;
+    background-color: rgba(var(--main-background-color), var(--main-background-opacity));
+    padding: 15px;
+    color: rgba(var(--main-text-color));
+    border-radius: 25px;
+}

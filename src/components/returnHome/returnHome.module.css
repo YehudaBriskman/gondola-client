@@ -1,0 +1,11 @@
+.unitLogoContainer {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.iconHome {
+    width: 3.5rem;
+}

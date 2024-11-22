@@ -1,0 +1,44 @@
+.containerHomePage {
+    display: grid;
+    place-items: center;
+    grid-template-rows: 10% 90%;
+    color: var(--main-text-color);
+    width: calc(100% - 6rem);
+    height: calc(100% - 6rem);
+}
+
+.containerHomePageInner {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+}
+.aboutIcon {
+    justify-self: end;
+}
+
+.header {
+    font-size: 6rem;
+    font-family: gondola-by-picasso;
+}
+
+.logoDept {
+    height: 8rem;
+    width: 8rem;
+}
+
+.link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--main-text-color);
+    text-decoration: none;
+    justify-content: space-between;
+    font-size: 7rem;
+}
+
+.iconLink {
+    height: 4rem;
+    width: 4rem;
+}

@@ -1,0 +1,16 @@
+enum AddingModeEnum {
+    INITIAL_STATE = "INITIAL_STATE",
+    ADD_TARGETS = "ADD_TARGETS",
+    ADD_LEG = "ADD_LEG",
+    ADD_ARC = "ADD_ARC",
+    ADD_AMT = "ADD_AMT",
+    AMT_LIST = "AMT_LIST",
+    ADD_TANGENT_LINE = "ADD_TANGENT_LINE",
+    ADD_POLYGON = "ADD_POLYGON",
+    ADD_ENTRY = "ADD_ENTRY",
+    ADD_EXIT = "ADD_EXIT",
+    GENERAL = "GENERAL",
+    RESPONSE = "RESPONSE"
+};
+
+export default AddingModeEnum;

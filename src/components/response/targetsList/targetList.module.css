@@ -1,0 +1,21 @@
+.target{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 3px 0;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+.target:hover {
+    color: rgba(77, 202, 252);
+}
+
+.noTargets{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.svgIcon{
+    margin: 0 10px;
+}

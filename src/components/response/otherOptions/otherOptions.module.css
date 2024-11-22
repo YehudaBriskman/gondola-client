@@ -1,0 +1,51 @@
+.listContainer {
+    padding: 0.25rem 0.25rem;
+}
+
+.hr {
+    background: #fff;
+    overflow: visible;
+    text-align: center;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+}
+
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+    padding: 0.25rem 0.75rem;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    color: #fff;
+    transition: color 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.button:not(:first-child){
+    margin-top: 0.5rem;
+}
+
+.button:hover {
+    color: rgba(77, 202, 252);
+}
+
+.icon {
+    height: 2.25rem;
+    cursor: pointer;
+}
+
+.upsideDown{
+    transform: rotate(180deg);
+}
+
+.noOtherOpthions{
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+}

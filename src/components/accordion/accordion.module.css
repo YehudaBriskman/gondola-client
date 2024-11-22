@@ -1,0 +1,76 @@
+.accordion {
+    height: calc((var(--height, 2rem)) + (var(--padding, 0) * 0.5rem));
+    width: 100%;
+    overflow: hidden;
+    transition: 200ms;
+    align-items: center;
+    list-style-type: square;
+    color: var(--main-text-color);
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    font-size: 1.25rem;
+}
+
+.header {
+    max-height: 2rem;
+    display: flex;
+    color: var(--main-text-color);
+    align-items: center;
+    font-size: 1.5rem;
+    user-select: none;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.image {
+    height: 1.65rem;
+    width: 1.65rem;
+    transition: transform 0.3s ease-in-out;
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    padding: 0 0.6rem 0.6rem;
+    justify-content: space-between;
+}
+
+.checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 26px;
+    width: 26px;
+    border: 3px solid #56b6ff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: content 0.3s;
+}
+
+.checkbox:checked::before{
+    content: 'V';
+    display: block;
+    color: #56b6ff;
+    text-align: center;
+    line-height:20px;
+    font-size: 16px;
+}
+
+.rotated {
+    transform: rotate(180deg);
+    transition: transform 0.1s ease-in-out;
+}
+
+.children {
+    margin: 0.5rem 0 0 0;
+    padding: 0;
+    max-height: 200px;
+    overflow: auto;
+    border-radius: 12px;
+}

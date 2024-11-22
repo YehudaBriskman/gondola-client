@@ -1,0 +1,11 @@
+.generalFrame {
+    gap: 1rem;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    background: #3a393985;
+    border-radius: 1rem;
+}

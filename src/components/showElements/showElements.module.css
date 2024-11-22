@@ -1,0 +1,26 @@
+
+  .showElements {
+    font-size: 1.5rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: lighter;
+    color: var(--main-text-color);
+    width: 100%;
+  }
+  
+  .showElement{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 2.5rem;
+  }
+  
+  .showIcon{
+    width: 2rem;
+    color: var(--main-text-color); 
+  }
+
+  .hideIcon{
+    height: 1.5rem;
+    width: 1.5rem;
+  }
+  

@@ -1,0 +1,16 @@
+.general_line{
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 0 1rem;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    display: flex; 
+    padding: 0.25rem 0.5rem;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.general_line:hover{
+    color: rgba(77, 202, 252);
+}

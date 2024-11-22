@@ -1,0 +1,96 @@
+.logo {
+    width: 8rem;
+}
+
+.uploadCSV {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--main-text-color);
+    gap: 2rem;
+}
+
+.header {
+    font-size: 3rem;
+}
+
+.input>input {
+    display: none;
+}
+
+.input {
+    overflow: hidden;
+    border: 0.2rem dashed black;
+    border-radius: 3rem;
+    transition-duration: 200ms;
+    position: relative;
+}
+
+.input::before {
+    content: '';
+    position: absolute;
+    inset: 0px;
+    background-image: linear-gradient(120deg,
+            rgba(255, 255, 255, 0) 0,
+            rgba(255, 255, 255, 0) 20%,
+            rgba(255, 255, 255, 0.2) 40%,
+            rgba(255, 255, 255, 0) 60%,
+            rgba(255, 255, 255, 0));
+    animation: 3s glow ease-in-out infinite;
+    transform: translateX(-100%);
+    display: none;
+
+}
+
+@keyframes glow {
+
+    50%,
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.input.valid::before {
+    display: block;
+}
+
+.input.valid {
+    border-color: white;
+    scale: 1.05;
+}
+
+.input.invalid {
+    border-color: red;
+}
+
+.input>label {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 12rem;
+    aspect-ratio: 2;
+    background-color: rgba(var(--main-background-color), 0.4);
+    cursor: pointer;
+}
+
+.drop {
+    font-size: 1.5rem;
+}
+
+.browse {
+    background-color: rgb(27, 27, 88);
+    padding: 0.4rem;
+    border-radius: 1000px;
+}
+
+.buttonsWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+}
+
+.link {
+    text-decoration: none;
+}

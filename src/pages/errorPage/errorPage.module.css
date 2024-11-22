@@ -1,0 +1,27 @@
+.containerError,
+.details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.containerError {
+    height: 100%;
+}
+
+.header {
+    font-size: 4rem;
+    color: var(--main-text-color)
+}
+
+.desc {
+    font-size: 2rem;
+    color: var(--main-text-color)
+}
+
+.errorCode {
+    font-size: 1rem;
+    color: var(--main-text-color)
+}

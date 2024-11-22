@@ -1,0 +1,64 @@
+.logoContainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 0.4rem;
+    width: 100%;
+}
+
+.gondolaLogo {
+    width: 3rem;
+}
+
+.title {
+    display: block;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.titleMenu {
+    text-align: center;
+    font-size: 1.75rem;
+    color: var(--main-text-color);
+    display: flex;
+}
+
+.status {
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: medium;
+}
+
+.responseId {
+    font-size: medium;
+    color: var(--main-text-color);
+    text-align: center;
+}
+
+.tooltip{
+    width: 100%;
+    background-color: rgb(76, 76, 76);
+    color: var(--main-text-color);
+    font-size: 1.25rem;
+    cursor: pointer;
+    justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    padding: 0.5rem 15px;
+    border-radius: 25px;
+    z-index: 100;
+}
+
+.tooltip div{
+    justify-content: space-between;
+    display: flex;
+}
+
+.tooltip div p{
+    margin: 0 0.5rem;
+}

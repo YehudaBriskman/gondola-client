@@ -1,0 +1,38 @@
+.buttonComponent {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    background: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.standard:active:not(form:invalid button.buttonComponent[type=submit],
+    button.buttonComponent:disabled) {
+    scale: 0.95;
+}
+
+.standard {
+    background-color: whitesmoke;
+    padding: 0.5rem;
+    border-radius: 0.4rem;
+}
+
+form:invalid button.buttonComponent[type=submit],
+button.buttonComponent:disabled {
+    color: grey;
+    cursor: not-allowed;
+}
+
+.iconAndText {
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    gap: 1rem;
+}
+
+.iconAndText>span {
+    text-align: left;
+}

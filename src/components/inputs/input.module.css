@@ -1,0 +1,88 @@
+.inputContainer,
+.selectContainer {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    color: var(--main-text-color);
+    width: 100%;
+    overflow: hidden;
+    padding: 1px;
+}
+.inputContainer.noPadding {
+    padding: 0px;
+}
+
+.inputContainer>label,
+.selectContainer>label {
+    font-size: 1rem;
+    padding-left: 0.5rem;
+    position: relative;
+}
+
+.inputContainer:has(input:invalid) {
+    /* DO NOT DELETE */
+    /* HERE FOR TRIGGERING AN UPDATE IN LABEL */
+
+    /* MEANINGLESS COMMAND FOR LINTERS: */
+    content: '';
+}
+
+.inputContainer:has(input:invalid)>label::after {
+    content: '*';
+    font-size: 0.6rem;
+    position: absolute;
+}
+
+.inputContainer>input:focus {
+    box-shadow: inset 0 0 0 0.06rem rgb(89, 238, 3);
+    ;
+}
+
+.blurred:invalid {
+    box-shadow: 0 0 0 0.06rem red;
+}
+
+
+input.input[type=number] {
+    appearance: textfield;
+    -webkit-appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+select.select,
+input.input {
+    outline: none;
+    border-radius: 0.7rem;
+    border: none;
+    padding: 0.5rem;
+}
+
+select.select {
+    /* appearance: textfield;
+    -webkit-appearance: textfield;
+    -moz-appearance: none; */
+    width: 100%;
+}
+
+input.input[type="checkbox"]{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 30px;
+    width: 34px;
+    border: 3px solid #56b6ff;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: content 0.3s;
+    outline: none;
+
+}
+input.input[type="checkbox"]:checked::before{
+    content: 'V';
+    font-weight: bold;
+    display: block;
+    color: #56b6ff;
+    text-align: center;
+    line-height:8px;
+    font-size: 18px;
+}

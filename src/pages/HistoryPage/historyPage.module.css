@@ -1,0 +1,161 @@
+.containerHistoryPage {
+    /* values: */
+    --border-radius: 0.7rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    overflow: hidden;
+    height: 100%;
+
+}
+
+.mainHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.containerFilter {
+    display: flex;
+    align-self: flex-start;
+    margin-left: 6rem;
+    align-items: center;
+}
+
+.searchInput:focus {
+    box-shadow: 0 0 1px 1px rgb(255,255,255);
+    outline: none;
+}
+
+.searchInput {
+    height: 40px;
+    border-radius: var(--border-radius);
+    color: var(--main-text-color);
+    background-color: transparent;
+    border: 1px solid white;
+    width: 200px;
+    padding: 0 6px;
+}
+
+.filter{
+    height: 40px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: var(--main-text-color);
+    border-radius: var(--border-radius);
+    margin-left: 6px;
+    cursor: pointer;
+    padding: 0 6px;
+}
+
+.numbersFilter {
+    height: 40px;
+    padding-top: 0px;
+    border-radius: var(--border-radius);
+    color: var(--main-text-color);
+    background-color: transparent;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.queryfilter {
+    height: 40px;
+    border: 1px solid white;
+    background-color: transparent;
+    color: var(--main-text-color);
+    border-radius: var(--border-radius);
+    margin-left: 6px;
+    padding: 0 6px;
+}
+
+.numFilter {
+    font-size: 1rem;
+    height: 100%;
+    width: 50px;
+    border: none;
+    background-color: transparent;
+    color: var(--main-text-color);
+    cursor: pointer;
+    padding: 0 6px;
+    outline: none;
+}
+
+.moveIcons{
+    height: 30px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.logoDept {
+    margin-top: 1.5rem;
+    height: 6.5rem;
+    width: 6.5rem;
+}
+
+.header {
+    color: var(--main-text-color);
+    font-size: 5rem;
+    font-family: PoiretOne-Regular
+}
+
+.tableHeader {
+    grid-template-columns: 9fr 8fr 6fr 2fr;
+    font-size: 1.5rem;
+    padding-bottom: 12px;
+}
+
+.tableContent {
+    grid-template-columns: 9fr 8fr 6fr 2fr;
+    height: 20rem;
+    font-size: medium;
+    overflow: auto;
+    grid-auto-rows: min-content;
+}
+
+.tableHeader,
+.tableContent {
+    display: grid;
+    color: var(--main-text-color);
+    font-family: Adequate-ExtraLight;
+    width: 80%;
+}
+
+.row {
+    width: 85%;
+    margin: 0;
+    margin-bottom: 1rem;
+    color: var(--main-text-color);
+}
+
+.homeButton {
+    margin-top: 2%;
+}
+
+.homeButton:active {
+    scale: 0.9;
+}
+
+.icon {
+    height: 2rem;
+    width: min-content;
+    cursor: pointer;
+}
+
+.icon:active {
+    scale: 0.95;
+}
+
+.icon>img {
+    height: 100%;
+}
+
+.itemName{
+    max-width: 90%;
+    display: flex;
+    align-items: center;
+}
