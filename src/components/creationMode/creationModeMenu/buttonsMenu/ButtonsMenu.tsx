@@ -9,7 +9,6 @@ import editPolygon from '../../../../assets/icons/creationModeIcons/polygon-bold
 import entryPoint from '../../../../assets/icons/creationModeIcons/entryPoint.svg'
 import exitPoint from '../../../../assets/icons/creationModeIcons/exitPoint.svg'
 import generalIcon from '../../../../assets/icons/creationModeIcons/general.svg'
-// import amt from '../../../../assets/icons/earth-grid-of-horizontal-parallel-lines-svgrepo-com.svg'
 import history from "../../../../assets/icons/history-svgrepo-com.svg"
 import save from "../../../../assets/icons/save-svgrepo-com.svg"
 import send from "../../../../assets/icons/send-01-svgrepo-com.svg"
@@ -219,41 +218,60 @@ const ButtonsMenu = ({ setAddingMode, setProgress, progress }: Props) => {
         })
         if (missionName === null || missionName === "") return
         if (String(missionName).length > 30) return
-        const parsedData = SaveQueryInputSchema.safeParse({
-            ...route,
-            windDirection: general?.windDirection,
-            windSpeed: general?.windSpeed,
-            altitude: general?.altitude,
-            radius: general?.radius,
-            speed: general?.speed,
-            photoDelayAtStart: general?.photoDelayAtStart,
-            legs,
-            tangentLines,
-            arcs,
-            targets,
-            flyZone: polygon,
-            name: missionName,
-            source: "MANUAL"
-        })
-        if (!parsedData.success) {
-            alertInvalidData(<ZodAlertList errorList={parsedData.error.errors} />)
-            return
-        }
-        setProgress({ iterationCount: 1, percentage: 0 });
-        toastAlert("saving...", "top")
-        try {
-            const res = await Network.mongoQueries.saveQuery(parsedData.data)
-            dispatch(setResponse(parsedData.data))
-            await alertAndExecute(
-                () => toastAlert(String(res), "top", 3000),
-                () => navigate('/response')
-            )
-        } catch (error) {
-            setProgress(null);
-            console.error(error);
-            alertFailedRequest("Error", `${error}`);
-            return;
-        }
+        if (missionName)
+            try {
+                let permission = true
+                const isMissionExist = await mongoQueries.retrieveQuery(missionName)
+                if (isMissionExist !== null) {
+                    await alertPermission("Mission already exist", "Do you want to continue and overight the old mission?").then((confirmed: boolean) => {
+                        permission = confirmed
+                    })
+                }
+                if (permission) {
+                    const parsedData = SaveQueryInputSchema.safeParse({
+                        ...route,
+                        windDirection: general?.windDirection,
+                        windSpeed: general?.windSpeed,
+                        altitude: general?.altitude,
+                        radius: general?.radius,
+                        speed: general?.speed,
+                        photoDelayAtStart: general?.photoDelayAtStart,
+                        legs,
+                        tangentLines,
+                        arcs,
+                        targets,
+                        flyZone: polygon,
+                        name: missionName,
+                        source: "MANUAL"
+                    })
+                    if (!parsedData.success) {
+                        alertInvalidData(<ZodAlertList errorList={parsedData.error.errors} />)
+                        return
+                    }
+                    setProgress({ iterationCount: 1, percentage: 0 });
+                    toastAlert("saving...", "top")
+                    try {
+                        const res = await Network.mongoQueries.saveQuery(parsedData.data)
+                        dispatch(setResponse(parsedData.data))
+                        await alertAndExecute(
+                            () => toastAlert(String(res), "top", 3000),
+                            () => navigate('/response')
+                        )
+                    } catch (error) {
+                        setProgress(null);
+                        console.error(error);
+                        alertFailedRequest("Error", `${error}`);
+                        return;
+                    }
+                }
+                else return
+            }
+            catch (error) {
+                console.error(error)
+                alertFailedRequest("Error", `${error}`)
+                return
+            }
+        else alertInvalidData("Invalid name")
     }
 
     useEffect(() => {
@@ -299,13 +317,7 @@ const ButtonsMenu = ({ setAddingMode, setProgress, progress }: Props) => {
                 name: "Edit Tangent Line",
                 mode: AddingModeEnum.ADD_TANGENT_LINE,
                 icon: tangentLineIcon,
-            },
-            // {
-            //     name: "Amt",
-            //     mode: AddingModeEnum.AMT_LIST,
-            //     icon: amt,
-            // },
-            {
+            }, {
                 name: "General",
                 mode: AddingModeEnum.GENERAL,
                 icon: generalIcon,
