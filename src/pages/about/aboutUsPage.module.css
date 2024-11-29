@@ -8,6 +8,7 @@
     height: 100%;
     color: var(--main-text-color);
     width: 90%;
+    padding-top: 1rem;
 }
 
 .logo {
@@ -42,14 +43,14 @@
 
 .aboutHeader{
     font-family: gondola-by-picasso;
-    font-size: 6rem;
+    font-size: 5rem;
 }
 
 .aboutUsText {
     font-weight: lighter;
     /* font-family: Adequate-ExtraLight;  */
-    font-size: 2.5rem;
-    margin: 2rem;
+    font-size: 2rem;
+    margin: 1.5rem;
     display: flex;
     flex-direction: column;
 }
