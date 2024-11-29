@@ -11,8 +11,8 @@ type SidebarHeaderProps = {
 
 export default function SidebarHeader({ name, id }: SidebarHeaderProps) {
 
-  const [statusMongo, setStatusMongo] = useState(1)
-  const [statusAlgo, setStatusAlgo] = useState(1)
+  const [statusMongo, setStatusMongo] = useState(0)
+  const [statusAlgo, setStatusAlgo] = useState(0)
   const [statusColor, setStatusColor] = useState("#ff0000")
   const [isHover, setIsHover] = useState(false)
 
