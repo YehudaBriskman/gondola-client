@@ -31,7 +31,7 @@
     "react-svg": "^16.1.29",
     "redux": "^5.0.1",
     "styled-components": "^6.1.1",
-    "sweetalert2": "^11.10.5",
+    "sweetalert2": "^11.14.5",
     "web-vitals": "^2.1.4",
     "zod": "^3.22.4"
   },
