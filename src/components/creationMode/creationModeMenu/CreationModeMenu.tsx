@@ -1,13 +1,14 @@
 import React from 'react'
 import AddingModeEnum from "../../../utils/addingModeEnum";
-import Switch from '../manualResponse/switch';
+// import Switch from '../manualResponse/switch';
 import classes from "../manualResponse/switch.module.css"
 import ButtonsMenu from './buttonsMenu/ButtonsMenu';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from '../../../store/store';
 import SidebarHeader from '../../sidebarHeader/SidebarHeader';
-import { switchToUpSideDown } from '../../../store/slices/switchSlice';
+// import { switchToUpSideDown } from '../../../store/slices/switchSlice';
 import { SetProgressType, progressType } from '../../../pages/creationMode/CreationMode';
+import { useSelector } from 'react-redux';
 
 
 type CreationModeMenuProps = {
@@ -24,18 +25,18 @@ export default function CreationModeMenu({
 }: CreationModeMenuProps,) {
   const switchState = useSelector((root: RootState) => root.switch.switchHolder);
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
 
-  const toggleSwitch = () => {
-    dispatch(switchToUpSideDown())
-  }
+  // const toggleSwitch = () => {
+  //   dispatch(switchToUpSideDown())
+  // }
 
   return (
     <>
       <SidebarHeader name="Gondola" />
       <div className={classes.switchAIContainer}>
-        <span className={`${classes.defaultTitle} ${classes.itemMenu}`}>AI</span>
-        <Switch typeMission={switchState} toggleSwitch={toggleSwitch} />
+        {/* <span className={`${classes.defaultTitle} ${classes.itemMenu}`}>AI</span>
+        <Switch typeMission={switchState} toggleSwitch={toggleSwitch} /> */}
         <span className={`${classes.trueTitle} ${classes.itemMenu}`}>Manual</span>
       </div>
       <ButtonsMenu progress={progress} setProgress={setProgress} setAddingMode={setAddingMode} typeMission={switchState} />
