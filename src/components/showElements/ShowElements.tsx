@@ -4,7 +4,7 @@ import classes from "./showElements.module.css";
 import showIcon from "../../assets/icons/eye&arrow/eye-svgrepo-com.svg";
 import disableIcon from '../../assets/icons/eye&arrow/eye-slash-svgrepo-com.svg'
 import { useEffect, useState } from "react";
-import { Arc, Target, Leg, TangentLine, FlyZone,Amt } from "../../gondola_types/navigationElements";
+import { Arc, Target, Leg, TangentLine, FlyZone, Amt } from "../../gondola_types/navigationElements";
 import { Path } from "../../gondola_types/basicElements";
 
 type ShowElementsProps = {
@@ -21,15 +21,15 @@ type ShowElementsProps = {
     legs: Leg[]
     tangentLine: TangentLine[];
     polygon: FlyZone
-    entry: Path | undefined | null
-    exit: Path | undefined | null
+    entry: Path | undefined | null | Partial<Path>
+    exit: Path | undefined | null | Partial<Path>
     amts: Amt[] | undefined;
 }
 
 type ElementsData = {
     name: string;
     viewFunction: Function;
-    data: Target[] | FlyZone | Path | Leg[] | Arc[] | Amt[] | TangentLine[] | undefined | null;
+    data: Target[] | FlyZone | Path | Leg[] | Arc[] | Amt[] | TangentLine[] | undefined | null | Partial<Path>;
     isVisible: Function;
     elementVisible: boolean;
 }
@@ -40,7 +40,7 @@ const isAnyView = (view: boolean[]) => {
 
 
 export default function ShowElements({
-    legsView, targetsView, polygonView, entryPointView, exitPointView, amtsView, legs, targets, polygon, entry, exit, amts, arcsView,tangentLineView,tangentLine, arcs
+    legsView, targetsView, polygonView, entryPointView, exitPointView, amtsView, legs, targets, polygon, entry, exit, amts, arcsView, tangentLineView, tangentLine, arcs
 }: ShowElementsProps
 ) {
     const [targetIsVisible, setTargetVisible] = useState(targetsView.value);

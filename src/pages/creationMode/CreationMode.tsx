@@ -52,11 +52,13 @@ export default function CreationMode() {
     const targets = useSelector((state: RootState) => state.targets.targetsHolder);
     const arcs = useSelector((state: RootState) => state.arcs.arcHolder);
     const polygonPoints = useSelector((state: RootState) => state.polygon.polygonHolder);
-    const responseRoute = useSelector((state: RootState) => state.response.responseHolder);
     const legs = useSelector((e: RootState) => e.legs.legHolder);
     const tangentsLines = useSelector((e: RootState) => e.tangentLines.tangentsLineHolder);
     const amts = useSelector((state: RootState) => state.amts.amtHolder);
-
+    const entry = useSelector((state: RootState) => state.entryPath.pathsHolder);
+    const exit = useSelector((state: RootState) => state.exitPath.pathsHolder);
+    const responseRoute = useSelector((state: RootState) => state.response.responseHolder);
+    
     const editPoint = (index: number) => (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.stopPropagation();
         setAddingMode(AddingModeEnum.ADD_TARGETS)
@@ -150,8 +152,8 @@ export default function CreationMode() {
                     (Array.isArray(targets) && targets.length !== 0) ||
                     (Array.isArray(polygonPoints) && polygonPoints.length !== 0) ||
                     (Array.isArray(amts) && amts.length !== 0) ||
-                    (responseRoute?.exitPath && typeof responseRoute.exitPath === 'object' && Object.keys(responseRoute.exitPath).length !== 0)) ||
-                    (responseRoute?.entryPath && typeof responseRoute.entryPath === 'object' && Object.keys(responseRoute.entryPath).length !== 0)) &&
+                    (exit && typeof exit === 'object' && Object.keys(exit).length !== 0)) ||
+                    (entry && typeof entry === 'object' && Object.keys(entry).length !== 0)) &&
                     <Accordion
                         title='View Elements'
                         src={eyeIcon}
@@ -169,8 +171,8 @@ export default function CreationMode() {
                                 amtsView={{ value: amtView, onChange: setAllAmtView }}
                                 targets={targets}
                                 polygon={polygonPoints}
-                                entry={responseRoute?.entryPath} {...responseRoute?.entryPath}
-                                exit={responseRoute?.exitPath}
+                                entry={entry}
+                                exit={exit}
                                 arcs={arcs}
                                 legs={legs}
                                 tangentLine={tangentsLines}
@@ -206,8 +208,8 @@ export default function CreationMode() {
             {amts?.map((amt, i) => (
                 (isAllView(amtView) || amtView[i]) && <DisplayAmt center={amt.center} radius={amt.radius} show={amtView[i]} key={i} />
             ))}
-            {entryPointView && responseRoute?.entryPath ? <DisplayPath type="entry" path={responseRoute.entryPath} /> : <></>}
-            {exitPointView && responseRoute?.exitPath ? <DisplayPath type="exit" path={responseRoute.exitPath} /> : <></>}
+            {entryPointView && entry ? <DisplayPath type="entry" path={entry} /> : <></>}
+            {exitPointView && exit ? <DisplayPath type="exit" path={exit} /> : <></>}
         </>
     )
 }
