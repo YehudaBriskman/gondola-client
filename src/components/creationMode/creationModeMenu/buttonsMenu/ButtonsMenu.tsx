@@ -48,55 +48,52 @@ const ButtonsMenu = ({ setAddingMode, setProgress }: Props) => {
         await alertInput("name", "text", "must have (0-30 characters)").then((name) => {
             missionName = name
         })
-        if (missionName === null || missionName === "") return
-        if (String(missionName).length > 30) return
+        if (missionName === null || missionName === "" || String(missionName).length > 30) return
         if (missionName)
             try {
                 let permission = true
                 const isMissionExist = await mongoQueries.retrieveQuery(missionName)
                 if (isMissionExist !== null) {
-                    await alertPermission("Mission already exist", "Do you want to continue and overight the old mission?").then((confirmed: boolean) => {
+                    await alertPermission("Mission already exist", "Do you want to continue and over-right the old mission?").then((confirmed: boolean) => {
                         permission = confirmed
                     })
                 }
-                if (permission) {
-                    const parsedData = SaveQueryInputSchema.safeParse({
-                        ...route,
-                        windDirection: general?.windDirection,
-                        windSpeed: general?.windSpeed,
-                        altitude: general?.altitude,
-                        radius: general?.radius,
-                        speed: general?.speed,
-                        photoDelayAtStart: general?.photoDelayAtStart,
-                        legs,
-                        tangentLines,
-                        arcs,
-                        targets,
-                        flyZone: polygon,
-                        name: missionName,
-                        source: "MANUAL"
-                    })
-                    if (!parsedData.success) {
-                        alertInvalidData(<ZodAlertList errorList={parsedData.error.errors} />)
-                        return
-                    }
-                    setProgress({ iterationCount: 1, percentage: 0 });
-                    toastAlert("saving...", "top")
-                    try {
-                        const res = await Network.mongoQueries.saveQuery(parsedData.data)
-                        dispatch(setResponse(parsedData.data))
-                        await alertAndExecute(
-                            () => toastAlert(String(res), "top", 3000),
-                            () => navigate('/response')
-                        )
-                    } catch (error) {
-                        setProgress(null);
-                        console.error(error);
-                        alertFailedRequest("Error", `${error}`);
-                        return;
-                    }
+                if (!permission) return
+                const parsedData = SaveQueryInputSchema.safeParse({
+                    ...route,
+                    windDirection: general?.windDirection,
+                    windSpeed: general?.windSpeed,
+                    altitude: general?.altitude,
+                    radius: general?.radius,
+                    speed: general?.speed,
+                    photoDelayAtStart: general?.photoDelayAtStart,
+                    legs,
+                    tangentLines,
+                    arcs,
+                    targets,
+                    flyZone: polygon,
+                    name: missionName,
+                    source: "MANUAL"
+                })
+                if (!parsedData.success) {
+                    alertInvalidData(<ZodAlertList errorList={parsedData.error.errors} />)
+                    return
                 }
-                else return
+                setProgress({ iterationCount: 1, percentage: 0 });
+                toastAlert("saving...", "top")
+                try {
+                    const res = await Network.mongoQueries.saveQuery(parsedData.data)
+                    dispatch(setResponse(parsedData.data))
+                    await alertAndExecute(
+                        () => toastAlert(String(res), "top", 3000),
+                        () => navigate('/response')
+                    )
+                } catch (error) {
+                    setProgress(null);
+                    console.error(error);
+                    alertFailedRequest("Error", `${error}`);
+                    return;
+                }
             }
             catch (error) {
                 console.error(error)
