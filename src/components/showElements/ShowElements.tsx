@@ -16,7 +16,9 @@ type ShowElementsProps = {
     amtsView: { value: boolean[], onChange: Function };
     legsView: { value: boolean, onChange: Function };
     tangentLineView: { value: boolean, onChange: Function };
+    legsTargetsView: { value: boolean, onChange: Function };
     targets: Target[]
+    legsTargets: Target[]
     arcs: Arc[]
     legs: Leg[]
     tangentLine: TangentLine[];
@@ -40,9 +42,11 @@ const isAnyView = (view: boolean[]) => {
 
 
 export default function ShowElements({
-    legsView, targetsView, polygonView, entryPointView, exitPointView, amtsView, legs, targets, polygon, entry, exit, amts, arcsView, tangentLineView, tangentLine, arcs
+    legsView, targetsView, polygonView, entryPointView, exitPointView, amtsView, legs,legsTargets, targets, polygon, entry, exit, amts, legsTargetsView, arcsView, tangentLineView, tangentLine, arcs
 }: ShowElementsProps
 ) {
+
+    const [legsTargetIsVisible, setLegsTargetVisible] = useState(legsTargetsView.value);
     const [targetIsVisible, setTargetVisible] = useState(targetsView.value);
     const [arcIsVisible, setArcVisible] = useState(arcsView.value);
     const [polygonIsVisible, setPolygonVisible] = useState(polygonView.value);
@@ -56,6 +60,7 @@ export default function ShowElements({
 
 
     const elementsData: ElementsData[] = [
+        { name: 'Legs Targets', viewFunction: legsTargetsView.onChange, data: legsTargets, isVisible: () => setLegsTargetVisible(!legsTargetIsVisible), elementVisible: legsTargetIsVisible },
         { name: 'Target', viewFunction: targetsView.onChange, data: targets, isVisible: () => setTargetVisible(!targetIsVisible), elementVisible: targetIsVisible },
         { name: 'Arc', viewFunction: arcsView.onChange, data: arcs, isVisible: () => setArcVisible(!arcIsVisible), elementVisible: arcIsVisible },
         { name: 'Polygon', viewFunction: polygonView.onChange, data: polygon, isVisible: () => setPolygonVisible(!polygonIsVisible), elementVisible: polygonIsVisible },

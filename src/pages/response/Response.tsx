@@ -74,7 +74,7 @@ export default function Response() {
                 <SidebarHeader name='Gondola' id={route?.name ?? ""} />
 
                 <Accordion title='Fly zone' src={polygonIcone} src2={arrowDown} alt='Fly zone' children={<PolygonList />} />
-                {/* <Accordion title='Legs Targets' src={targetsIcon} src2={arrowDown} alt='targets list' children={<TargetsList mode={'res'} />} /> */}
+                <Accordion title='Legs Targets' src={targetsIcon} src2={arrowDown} alt='targets list' children={<TargetsList mode={'res'} />} />
                 <Accordion title='Targets' src={targetsIcon} src2={arrowDown} alt='targets list' children={<TargetsList mode={'req'} />} />
                 <Accordion title='Legs' src={targetsIcon} src2={arrowDown} alt='legs list' children={<LegList />} />
                 {/* <Accordion title='Amts' src={amtIcon} src2={arrowDown} alt='amts list' checkBox={true} view={amtView} setView={setAmtView} children={<AmtList amtView={amtView} setAmtView={setAmtView} mode='res' />} /> */}

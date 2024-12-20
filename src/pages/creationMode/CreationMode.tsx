@@ -31,13 +31,33 @@ import DisplayAmt from '../../components/map/DisplayAmt';
 import { dropTangentLine } from '../../store/slices/tangentLineSlice';
 import DisplayTangentLine from '../../components/map/DisplayTangentLine';
 import { createArcs } from '../../utils/calcArc';
+import { Leg, Target } from '../../gondola_types/navigationElements';
 
 
 
 export type progressType = { iterationCount: number, percentage: number } | null
 export type SetProgressType = React.Dispatch<React.SetStateAction<progressType | null>>
 
+const processLegs = (legs: Leg[] | Partial<Leg>[]): Target[] => {
+    let targets: any = []
+    for (let index = 0; index < legs.length; index++) {
+        const smallTargets = getTargetCount(legs[index])
+        if (Array.isArray(smallTargets) && smallTargets.length !== 0) {
+            targets = [...targets, ...smallTargets]
+        }
+    }
+    return targets
+}
 
+const getTargetCount = (leg: Leg | Partial<Leg>) => {
+    let targets = []
+    if (leg.targetInfo) {
+        for (let index = 0; index < leg.targetInfo.length; index++) {
+            targets.push(leg.targetInfo[index].target)
+        }
+    }
+    return targets
+}
 
 export default function CreationMode() {
 
@@ -53,12 +73,13 @@ export default function CreationMode() {
     const arcs = useSelector((state: RootState) => state.arcs.arcHolder);
     const polygonPoints = useSelector((state: RootState) => state.polygon.polygonHolder);
     const legs = useSelector((e: RootState) => e.legs.legHolder);
+    const legsTargets: Target[] = processLegs(legs)
     const tangentsLines = useSelector((e: RootState) => e.tangentLines.tangentsLineHolder);
     const amts = useSelector((state: RootState) => state.amts.amtHolder);
     const entry = useSelector((state: RootState) => state.entryPath.pathsHolder);
     const exit = useSelector((state: RootState) => state.exitPath.pathsHolder);
     const responseRoute = useSelector((state: RootState) => state.response.responseHolder);
-    
+
     const editPoint = (index: number) => (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
         e.stopPropagation();
         setAddingMode(AddingModeEnum.ADD_TARGETS)
@@ -86,6 +107,7 @@ export default function CreationMode() {
     const [polygonView, setPolygonView] = useState(true);
     const [entryPointView, setEntryPointView] = useState(true);
     const [exitPointView, setExitPointView] = useState(true);
+    const [legsTargetsView, setLegsTargetsView] = useState(true);
     const [amtView, setAmtView] = useState(new Array(amts ? amts.length : 0).fill(false));
 
     useEffect(() => {
@@ -148,7 +170,7 @@ export default function CreationMode() {
                 {addingMode === AddingModeEnum.ADD_AMT && <AddAmt setAddingMode={setAddingMode} amtView={amtView} setAmtView={setAmtView} />}
                 {addingMode === AddingModeEnum.AMT_LIST && <AmtList setAddingMode={setAddingMode} amtView={amtView} setAmtView={setAmtView} mode='req' />}
 
-                {(((Array.isArray(targets) && arcs.length !== 0) ||
+                {(((Array.isArray(arcs) && arcs.length !== 0) ||
                     (Array.isArray(targets) && targets.length !== 0) ||
                     (Array.isArray(polygonPoints) && polygonPoints.length !== 0) ||
                     (Array.isArray(amts) && amts.length !== 0) ||
@@ -161,6 +183,7 @@ export default function CreationMode() {
                         alt='View Elements'
                         children={
                             <ShowElements
+                                legsTargetsView={{ value: legsTargetsView, onChange: () => setLegsTargetsView(legsTargetsView => !legsTargetsView) }}
                                 targetsView={{ value: targetsView, onChange: () => setTargetsView(targetsView => !targetsView) }}
                                 polygonView={{ value: polygonView, onChange: () => setPolygonView(polygonView => !polygonView) }}
                                 entryPointView={{ value: entryPointView, onChange: () => setEntryPointView(entryPointView => !entryPointView) }}
@@ -169,6 +192,7 @@ export default function CreationMode() {
                                 legsView={{ value: legsView, onChange: () => setLegsView(legsView => !legsView) }}
                                 tangentLineView={{ value: tangentsLinesView, onChange: () => setTangentsLinesView(tangentsLinesView => !tangentsLinesView) }}
                                 amtsView={{ value: amtView, onChange: setAllAmtView }}
+                                legsTargets={legsTargets}
                                 targets={targets}
                                 polygon={polygonPoints}
                                 entry={entry}
