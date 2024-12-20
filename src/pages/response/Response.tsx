@@ -50,6 +50,8 @@ export default function Response() {
 
     return (
         <>
+
+            {route?.targets && route.targets.map((target, i) => <DisplayPoint key={i} type='res' target={target} />)}
             {route?.flyZone ? <DisplayPolygon polygonPoints={route.flyZone} /> : <DisplayPolygon polygonPoints={flyZone} />}
             {route?.entryPath && <DisplayPath type="entry" path={route.entryPath} />}
             {route?.exitPath && <DisplayPath type="exit" path={route.exitPath} />}
