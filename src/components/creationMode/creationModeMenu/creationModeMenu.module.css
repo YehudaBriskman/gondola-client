@@ -58,6 +58,7 @@ a.linkHistory:visited {
 .sendIcon {
   width: 3rem;
   color: var(--main-text-color);
+  margin-right: 0.5rem;
 }
 
 .buttonSend {
