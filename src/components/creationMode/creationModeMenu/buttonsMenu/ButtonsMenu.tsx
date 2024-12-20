@@ -9,7 +9,7 @@ import entryPoint from '../../../../assets/icons/creationModeIcons/entryPoint.sv
 import exitPoint from '../../../../assets/icons/creationModeIcons/exitPoint.svg'
 import generalIcon from '../../../../assets/icons/creationModeIcons/general.svg'
 import history from "../../../../assets/icons/history-svgrepo-com.svg"
-import save from "../../../../assets/icons/save-svgrepo-com.svg"
+import saveIcon from "../../../../assets/icons/save-svgrepo-com.svg"
 import SVGComponent from '../../../SVGComponent';
 import { ZodAlertList, alertAndExecute, alertFailedRequest, alertInput, alertInvalidData, alertPermission, toastAlert } from '../../../../utils/alerts/alerts';
 import { RootState } from '../../../../store/store';
@@ -179,7 +179,7 @@ const ButtonsMenu = ({ setAddingMode, setProgress }: Props) => {
         <div className={classes.halfSize}>
             <Button title='Send route request' onClick={handleSave} className={classes.buttonSend}>
                 <div className={classes.sendAria}>
-                    <SVGComponent className={classes.sendIcon} src={save} stroke='#fff' />
+                    <SVGComponent size='2rem' className={classes.sendIcon} src={saveIcon} stroke='#fff' />
                     <span className={classes.buttonTitle}>Save</span>
                 </div>
             </Button>
