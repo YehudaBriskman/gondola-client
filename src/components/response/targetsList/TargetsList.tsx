@@ -4,8 +4,8 @@ import { RootState } from "../../../store/store";
 import { useMap } from "react-leaflet";
 import { ConvertPoint } from "../../../utils/general";
 import { Leg, Target } from "../../../gondola_types/navigationElements";
-// import { convertTargetsToCSV, downloadFile } from "../../../utils/csv/handleCSVTargets";
-// import { alertInput } from "../../../utils/alerts/alerts";
+import { convertTargetsToCSV, downloadFile } from "../../../utils/csv/handleCSVTargets";
+import { alertInput } from "../../../utils/alerts/alerts";
 
 
 
@@ -49,17 +49,17 @@ export const TargetsList = ({ mode, }: Props) => {
 
   const resTargets = processLegs(response)
 
-  // const downloadTargets = async () => {
-  //   console.log("DDD");
+  const downloadTargets = async () => {
+    console.log("DDD");
 
-  //   const targets = mode === "res" ? resTargets : request
-  //   const csvData = convertTargetsToCSV(targets)
-  //   const fileName = await alertInput("file-name", "text")
-  //   console.log(fileName);
+    const targets = mode === "res" ? resTargets : request
+    const csvData = convertTargetsToCSV(targets)
+    const fileName = await alertInput("file-name", "text")
+    console.log(fileName);
 
-  //   if (fileName === null) return
-  //   downloadFile(csvData, "csv", fileName)
-  // }
+    if (fileName === null) return
+    downloadFile(csvData, "csv", fileName)
+  }
 
   return (
     <>
@@ -67,12 +67,12 @@ export const TargetsList = ({ mode, }: Props) => {
         <div>
           {resTargets && resTargets.length !== 0 ?
             <>
-              {/* <div className={classes.target} onClick={() => downloadTargets()}>
+              <div className={classes.target} onClick={() => downloadTargets()}>
                 <svg className={classes.svgIcon} fill={colorsByPriority[1]} width="2rem" height="2rem" viewBox="-5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
                   <path d={iconPath} />
                 </svg>
                 Download CSV
-              </div> */}
+              </div>
 
               {resTargets.map((target: Target, i: number) => (
 
