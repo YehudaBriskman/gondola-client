@@ -52,7 +52,7 @@ export default function CreationMode() {
     const targets = useSelector((state: RootState) => state.targets.targetsHolder);
     const arcs = useSelector((state: RootState) => state.arcs.arcHolder);
     const polygonPoints = useSelector((state: RootState) => state.polygon.polygonHolder);
-    const requestRoute = useSelector((state: RootState) => state.requestRoute.routeHolder);
+    const responseRoute = useSelector((state: RootState) => state.response.responseHolder);
     const legs = useSelector((e: RootState) => e.legs.legHolder);
     const tangentsLines = useSelector((e: RootState) => e.tangentLines.tangentsLineHolder);
     const amts = useSelector((state: RootState) => state.amts.amtHolder);
@@ -150,10 +150,14 @@ export default function CreationMode() {
                     (Array.isArray(targets) && targets.length !== 0) ||
                     (Array.isArray(polygonPoints) && polygonPoints.length !== 0) ||
                     (Array.isArray(amts) && amts.length !== 0) ||
-                    (typeof requestRoute.exitPath === 'object' && Object.keys(requestRoute.exitPath).length !== 0) ||
-                    (typeof requestRoute.entryPath === 'object' && Object.keys(requestRoute.entryPath).length !== 0))) &&
+                    (responseRoute?.exitPath && typeof responseRoute.exitPath === 'object' && Object.keys(responseRoute.exitPath).length !== 0)) ||
+                    (responseRoute?.entryPath && typeof responseRoute.entryPath === 'object' && Object.keys(responseRoute.entryPath).length !== 0)) &&
                     <Accordion
-                        title='View Elements' src={eyeIcon} src2={arrowDown} alt='View Elements' children={
+                        title='View Elements'
+                        src={eyeIcon}
+                        src2={arrowDown}
+                        alt='View Elements'
+                        children={
                             <ShowElements
                                 targetsView={{ value: targetsView, onChange: () => setTargetsView(targetsView => !targetsView) }}
                                 polygonView={{ value: polygonView, onChange: () => setPolygonView(polygonView => !polygonView) }}
@@ -165,8 +169,8 @@ export default function CreationMode() {
                                 amtsView={{ value: amtView, onChange: setAllAmtView }}
                                 targets={targets}
                                 polygon={polygonPoints}
-                                entry={requestRoute.entryPath}
-                                exit={requestRoute.exitPath}
+                                entry={responseRoute?.entryPath} {...responseRoute?.entryPath}
+                                exit={responseRoute?.exitPath}
                                 arcs={arcs}
                                 legs={legs}
                                 tangentLine={tangentsLines}
@@ -175,6 +179,8 @@ export default function CreationMode() {
                         }
                     />
                 }
+
+
                 <ReturnHome clearData={true} />
             </SideBarLayout >
             {
@@ -200,8 +206,8 @@ export default function CreationMode() {
             {amts?.map((amt, i) => (
                 (isAllView(amtView) || amtView[i]) && <DisplayAmt center={amt.center} radius={amt.radius} show={amtView[i]} key={i} />
             ))}
-            {entryPointView && requestRoute.entryPath ? <DisplayPath type="entry" path={requestRoute.entryPath} /> : <></>}
-            {exitPointView && requestRoute.exitPath ? <DisplayPath type="exit" path={requestRoute.exitPath} /> : <></>}
+            {entryPointView && responseRoute?.entryPath ? <DisplayPath type="entry" path={responseRoute.entryPath} /> : <></>}
+            {exitPointView && responseRoute?.exitPath ? <DisplayPath type="exit" path={responseRoute.exitPath} /> : <></>}
         </>
     )
 }

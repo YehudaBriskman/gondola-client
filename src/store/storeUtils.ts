@@ -3,11 +3,12 @@ import { z } from "zod"
 export enum LocalStorageKeys {
     POLYGON = "POLYGON",
     RESPONSE = "RESPONSE",
-    REQUEST_ROUTE = "REQUEST_ROUTE",
+    ENTRY_PATH = "ENTRY_PATH",
+    EXIT_PATH = "EXIT_PATH",
     TARGETS = "TARGETS",
     ARCS = "ARCS",
     LEGS = "LEGS",
-    TANGENTLINE = "TANGENTLINE",
+    TANGENT_LINE = "TANGENT_LINE",
     AMTS = "AMTS",
     GENERAL = "GENERAL"
 }
@@ -26,7 +27,7 @@ export function getInitialStoreState<T>(key: LocalStorageKeys, parser: z.ZodSche
             return parsed.data;
         }
     }
-    if (key === LocalStorageKeys.REQUEST_ROUTE) {
+    if (key === LocalStorageKeys.ENTRY_PATH || key === LocalStorageKeys.EXIT_PATH) {
         return {} as T;
     }
     if (key === LocalStorageKeys.RESPONSE) {

@@ -4,7 +4,8 @@ import home from '../../assets/icons/iconsSvgHome/home-svgrepo-com.svg'
 import SVGComponent from '../SVGComponent'
 import { alertPermission } from '../../utils/alerts/alerts'
 import { useDispatch } from 'react-redux'
-import { clearAll, clearPath } from '../../store/slices/requestRouteSlice'
+import { clearExitPath } from '../../store/slices/exitPathSlice'
+import { clearEntryPath } from '../../store/slices/entryPathSlice'
 import { clearArcs } from '../../store/slices/arcSlice'
 import { clearLegs } from '../../store/slices/legSlice'
 import { clearPolygon } from '../../store/slices/polygonSlice'
@@ -24,14 +25,13 @@ function ReturnHome({ clearData }: ReturnHomeProps) {
         const permission = await alertPermission("warning", `are you sure about delete All ?`)
         if (permission) {
             localStorage.clear();
-            diapatch(clearAll())
             diapatch(clearArcs())
             diapatch(clearLegs())
             diapatch(clearPolygon())
             diapatch(clearTargets())
             diapatch(clearTangentLines())
-            diapatch(clearPath({ type: "entry" }))
-            diapatch(clearPath({ type: "exit" }))
+            diapatch(clearExitPath())
+            diapatch(clearEntryPath())
             navigate("/")
         }
     }

@@ -11,7 +11,6 @@ const responseSlice = createSlice({
     },
 
     reducers: {
-
         setResponse: (state, action: PayloadAction<Field>) => {
             state.responseHolder = action.payload
         },

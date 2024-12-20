@@ -21,15 +21,15 @@ type ShowElementsProps = {
     legs: Leg[]
     tangentLine: TangentLine[];
     polygon: FlyZone
-    entry: Path | undefined
-    exit: Path | undefined
+    entry: Path | undefined | null
+    exit: Path | undefined | null
     amts: Amt[] | undefined;
 }
 
 type ElementsData = {
     name: string;
     viewFunction: Function;
-    data: Target[] | FlyZone | Path | Leg[] | Arc[] | Amt[] | TangentLine[] | undefined;
+    data: Target[] | FlyZone | Path | Leg[] | Arc[] | Amt[] | TangentLine[] | undefined | null;
     isVisible: Function;
     elementVisible: boolean;
 }

@@ -25,7 +25,6 @@ import { useMemo } from 'react';
 
 
 type Props = {
-    typeMission: Boolean
     setAddingMode: React.Dispatch<React.SetStateAction<AddingModeEnum>>;
     setProgress: SetProgressType;
     progress: progressType
@@ -36,7 +35,7 @@ const ButtonsMenu = ({ setAddingMode, setProgress }: Props) => {
     const legs = useSelector((root: RootState) => root.legs.legHolder)
     const arcs = useSelector((root: RootState) => root.arcs.arcHolder)
     const tangentLines = useSelector((root: RootState) => root.tangentLines.tangentsLineHolder)
-    const route = useSelector((root: RootState) => root.requestRoute.routeHolder)
+    const route = useSelector((root: RootState) => root.response.responseHolder)
     const general = useSelector((root: RootState) => root.general.generalHolder)
 
 

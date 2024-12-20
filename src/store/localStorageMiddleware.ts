@@ -13,9 +13,10 @@ const localStorageMiddleware: Middleware = (store: MiddlewareAPI<Dispatch<RootDi
     localStorage.setItem(LocalStorageKeys.POLYGON, JSON.stringify(storeData.polygon.polygonHolder));
     localStorage.setItem(LocalStorageKeys.ARCS, JSON.stringify(storeData.arcs.arcHolder));
     localStorage.setItem(LocalStorageKeys.LEGS, JSON.stringify(storeData.legs.legHolder));
-    localStorage.setItem(LocalStorageKeys.TANGENTLINE, JSON.stringify(storeData.tangentLines.tangentsLineHolder));
+    localStorage.setItem(LocalStorageKeys.TANGENT_LINE, JSON.stringify(storeData.tangentLines.tangentsLineHolder));
     localStorage.setItem(LocalStorageKeys.AMTS, JSON.stringify(storeData.amts.amtHolder));
-    localStorage.setItem(LocalStorageKeys.REQUEST_ROUTE, JSON.stringify(storeData.requestRoute.routeHolder));
+    localStorage.setItem(LocalStorageKeys.ENTRY_PATH, JSON.stringify(storeData.entryPath.pathsHolder));
+    localStorage.setItem(LocalStorageKeys.EXIT_PATH, JSON.stringify(storeData.exitPath.pathsHolder));
     localStorage.setItem(LocalStorageKeys.TARGETS, JSON.stringify(storeData.targets.targetsHolder));
     localStorage.setItem(LocalStorageKeys.GENERAL, JSON.stringify(storeData.general.generalHolder));
     if (storeData.response.responseHolder !== null) {
