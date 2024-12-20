@@ -94,6 +94,12 @@ export const TargetsList = ({ mode, }: Props) => {
         <div>
           {request && request.length !== 0 ?
             <>
+              <div className={classes.target} onClick={() => downloadTargets()}>
+                <svg className={classes.svgIcon} fill={colorsByPriority[1]} width="2rem" height="2rem" viewBox="-5 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                  <path d={iconPath} />
+                </svg>
+                Download CSV
+              </div>
               {request.map((target, i) => (
                 <div key={i} className={classes.target} onClick={() => {
                   map.flyTo(ConvertPoint.toLeafletPoint(target.point), undefined, { animate: true, duration: 2, })
