@@ -141,7 +141,7 @@ function HistoryPage() {
                 </div>
 
                 <footer className={classes.homeButton}>
-                    <ReturnHome icon={false} />
+                    <ReturnHome clearData={false} />
                 </footer>
             </div>
         </>

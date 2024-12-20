@@ -33,8 +33,8 @@ export default function Response() {
     const route = useSelector((state: RootState) => state.response.responseHolder)
     const flyZone = useSelector((state: RootState) => state.polygon.polygonHolder)
     const targets = useSelector((state: RootState) => state.targets.targetsHolder)
-    const entry = useSelector((state: RootState) => state.requestRoute.routeHolder.entryPath)
-    const exit = useSelector((state: RootState) => state.requestRoute.routeHolder.exitPath)
+    const entry = useSelector((state: RootState) => state.response.responseHolder?.entryPath)
+    const exit = useSelector((state: RootState) => state.response.responseHolder?.exitPath)
     let arcs
     if (route?.legs && route?.arcs && route?.tangentLines)
         arcs = createArcs(route?.legs, route?.arcs, route?.tangentLines)

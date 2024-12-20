@@ -39,7 +39,7 @@ export default function DisplayPoint(props: DisplayPointProps) {
     })
     return (
         <>
-            {props.type === "temp" && <CircleMarker pathOptions={{ color: selectedColor, fill: showFill, stroke: !showFill }} fillOpacity={1} center={{ lat, lng }} />}
+            {props.type === "temp" && <CircleMarker radius={20} pathOptions={{ color: selectedColor, fill: showFill, stroke: !showFill }} fillOpacity={1} center={{ lat, lng }} />}
             {props.type !== "temp" && (<Marker icon={targetIcon} position={{ lat, lng }} >
                 <Popup position={[lat, lng]}>
                     <h2 className={classes.title}>{props.target.name}</h2>
