@@ -11,31 +11,25 @@ type SidebarHeaderProps = {
 export default function SidebarHeader({ name, id }: SidebarHeaderProps) {
   const [status, setStatus] = useState({
     mongo: 0,
-    algo: 0,
     color: "#ff0000",
   });
   const [isHover, setIsHover] = useState(false);
 
   const fetchStatuses = useCallback(async () => {
     try {
-      const [mongo, algo] = await Promise.all([
+      const [mongo] = await Promise.all([
         Network.mongoQueries.introspectionCheck(),
-        Network.algoQueries.introspectionCheck(),
       ]);
-
       const mongoStatus = mongo ? 1 : 0;
-      const algoStatus = algo ? 1 : 0;
-
       const newColor =
-        mongoStatus === 1 && algoStatus === 1
+        mongoStatus === 1
           ? "#37ff37" 
-          : mongoStatus === 0 && algoStatus === 0
+          : mongoStatus
           ? "#ff0000" 
           : "#ff9900"; 
 
       setStatus({
         mongo: mongoStatus,
-        algo: algoStatus,
         color: newColor,
       });
     } catch (error) {
@@ -89,16 +83,6 @@ export default function SidebarHeader({ name, id }: SidebarHeaderProps) {
             </p>
           </div>
           <span />
-          <div>
-            <p>Algorithm:</p>
-            <p
-              style={{
-                color: `${status.algo === 1 ? "#37cc37" : "#dd1111"}`,
-              }}
-            >
-              {status.algo === 1 ? "Running" : "Dead"}
-            </p>
-          </div>
         </div>
       )}
     </div>
