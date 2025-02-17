@@ -1,11 +1,5 @@
 node_modules
-bulid
-.dockerignore
-Dockerfile
-.git
-__pycache__
-.venv
-*.log
-*.pyc
-*.pyo
+build
+dist
 .DS_Store
+.env
