@@ -9,15 +9,21 @@ import SaveAndCancel from '../../saveAndCancel/SaveAndCancel';
 import SidebarHeader from '../../sidebarHeader/SidebarHeader';
 import { ALTITUDE, RADIUS, SPEED, WIND_DIRECTION, WIND_SPEED } from '../../../utils/generalDefaultValue';
 import { setGeneral } from '../../../store/slices/generalSlice';
-import { General } from '../../../gondola_types/navigationElements';
+import { General, GeneralSchema } from '../../../gondola_types/navigationElements';
 
 type AddNewTargetProps = {
     setAddingMode: React.Dispatch<React.SetStateAction<AddingModeEnum>>;
 }
 
 function GeneralData({ setAddingMode }: AddNewTargetProps) {
-    const generalData = useSelector((state: RootState) => state.requestRoute.routeHolder)
-    const { register, handleSubmit } = useForm<General>({ defaultValues: { ...generalData } });
+    const generalData = useSelector((state: RootState) => state.general.generalHolder);
+
+    const { register, handleSubmit } = useForm<General>({
+        defaultValues: generalData,
+    });
+
+
+
     const dispatch = useDispatch();
     const onSubmit = (data: General) => {
         dispatch(setGeneral(data));

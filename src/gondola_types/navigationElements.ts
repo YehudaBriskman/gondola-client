@@ -38,13 +38,13 @@ export const ArcSchema = z.object({
 export const TangentLineSchema = PathSchema
 
 export const GeneralSchema = z.object({
-    speed: z.number({ required_error: "spped must be a number" }).nonnegative(),
-    altitude: z.number({ required_error: "altitude must be a number" }).nonnegative(),
-    windDirection: z.number({ required_error: "wind Direction must be a number" }).nonnegative(),
-    windSpeed: z.number({ required_error: "speed Direction must be a number" }).nonnegative(),
-    photoDelayAtStart: z.number({ required_error: "photo Delay at Start must be a number" }).nonnegative(),
-    radius: z.number({ required_error: "radius must be a number" }).nonnegative(),
-}).optional();
+    speed: z.number({ required_error: "speed must be a number" }).nonnegative().nullable(),
+    altitude: z.number({ required_error: "altitude must be a number" }).nonnegative().nullable(),
+    windDirection: z.number({ required_error: "wind Direction must be a number" }).nonnegative().nullable(),
+    windSpeed: z.number({ required_error: "speed Direction must be a number" }).nonnegative().nullable(),
+    photoDelayAtStart: z.number({ required_error: "photo Delay at Start must be a number" }).nonnegative().nullable(),
+    radius: z.number({ required_error: "radius must be a number" }).nonnegative().nullable(),
+});
 
 export type LeafletPoint = {
     lat: number;
