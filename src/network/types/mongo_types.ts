@@ -84,12 +84,6 @@ export type ArcInput = {
     endAngle: Angle
 }
 
-export type FullPath = {
-    legs: Leg[]
-    arcs: Arc[]
-    tangentLines: Path[] | undefined | null
-}
-
 export type Field = {
     flyZone: Point[]
     targets: Target[]
@@ -125,53 +119,3 @@ export type SaveQueryInput = {
     source: Source
     name: String
 }
-
-export type CreateFullPathInput = {
-    flyZone: PointInput[]
-    targets: TargetInput[]
-    entryPath: PathInput
-    exitPath: PathInput
-    speed: NonnegativeFloat
-    altitude: number
-    windDirection: Angle
-    windSpeed: NonnegativeFloat
-    photoDelayAtStart: NonnegativeFloat
-    radius: NonnegativeFloat
-    smartConnection: boolean
-}
-
-export type CreateFullPathOutput = FullPath
-
-export type CreateLegsInput = {
-    flyZone: PointInput[]
-    targets: TargetInput[]
-    entryPath: PathInput
-    exitPath: PathInput
-    speed: NonnegativeFloat
-    altitude: number
-    windDirection: Angle
-    windSpeed: NonnegativeFloat
-    photoDelayAtStart: NonnegativeFloat
-    radius: NonnegativeFloat
-}
-
-export type CreateLegsOutput = {
-    legs: LegInput[]
-}
-
-export type ConnectLegsInput = {
-    legs: LegInput[]
-    flyZone: PointInput[]
-    targets: TargetInput[]
-    entryPath: PathInput
-    exitPath: PathInput
-    speed: NonnegativeFloat
-    altitude: number
-    windDirection: Angle
-    windSpeed: NonnegativeFloat
-    photoDelayAtStart: NonnegativeFloat
-    radius: NonnegativeFloat
-    smartConnection: boolean
-}
-
-export type ConnectLegsOutput = FullPath

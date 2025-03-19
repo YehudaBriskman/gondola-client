@@ -171,7 +171,7 @@ async function retrieveQuery(name: String) {
                 name
             }
         })
-        console.log("retrieveQuery - response:", response.data.retrieveQuery)
+        console.log("retrieveQuery - response:", response.data)
         return response.data.retrieveQuery
     } catch (error) {
         console.error("Error retrieve Query", error)

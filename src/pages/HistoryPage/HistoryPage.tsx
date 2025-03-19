@@ -7,7 +7,7 @@ import arrowDown from "../../assets/icons/eye&arrow/arrow-down-svgrepo-com.svg"
 import { useNavigate } from 'react-router-dom';
 import showIcon from '../../assets/icons/eye&arrow/eye-svgrepo-com.svg'
 import { alertAndExecute, alertFailedRequest, alertPermission, toastAlert } from '../../utils/alerts/alerts';
-import { FieldSchema, FullPath } from '../../gondola_types/reqResRoutes';
+import { FieldSchema } from '../../gondola_types/reqResRoutes';
 import { Network } from '../../network/network';
 import { setResponse } from '../../store/slices/responseSlice';
 import { useDispatch } from 'react-redux';
@@ -15,7 +15,7 @@ import Loading from '../../components/loading/Loading';
 
 export type progressType = { iterationCount: number, percentage: number } | null
 
-type History = FullPath | any
+type History = any
 
 function HistoryPage() {
     const [progress, setProgress] = useState<progressType>(null)
@@ -124,7 +124,7 @@ function HistoryPage() {
                 <hr className={classes.row} />
                 <div className={classes.tableContent}>
                     {showMissions ? showMissions.filter((item) => {
-                        return searchInput.toLowerCase() === '' ? item : filter === "date" ? formatDate(item[filter]).toLowerCase().includes(searchInput) : item[filter].toLowerCase().includes(searchInput)
+                        return searchInput.toLowerCase() === '' ? item : filter === "timestamp" ? formatDate(item[filter]).toLowerCase().includes(searchInput) : item[filter].toLowerCase().includes(searchInput)
                     }).map((item, index) => (
                         (<React.Fragment key={index}>
                             <span className={classes.itemName} title='itemName'>{item.name}</span>
@@ -137,7 +137,7 @@ function HistoryPage() {
                         :
                         <span>NO DATA</span>
                     }
-                    {showMissions?.filter(item => filter === "date" ? formatDate(item[filter]).toLowerCase().includes(searchInput) : item[filter].toLowerCase().includes(searchInput)).length === 0 && <span>NO RESULTS</span>}
+                    {showMissions?.filter(item => filter === "timestamp" ? formatDate(item[filter]).toLowerCase().includes(searchInput) : item[filter].toLowerCase().includes(searchInput)).length === 0 && <span>NO RESULTS</span>}
                 </div>
 
                 <footer className={classes.homeButton}>

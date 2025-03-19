@@ -37,6 +37,8 @@ const ButtonsMenu = ({ setAddingMode, setProgress }: Props) => {
     const tangentLines = useSelector((root: RootState) => root.tangentLines.tangentsLineHolder)
     const route = useSelector((root: RootState) => root.response.responseHolder)
     const general = useSelector((root: RootState) => root.general.generalHolder)
+    const exitPath = useSelector((root: RootState) => root.exitPath.pathsHolder)
+    const entryPath = useSelector((root: RootState) => root.entryPath.pathsHolder)
 
 
     const navigate = useNavigate()
@@ -66,6 +68,8 @@ const ButtonsMenu = ({ setAddingMode, setProgress }: Props) => {
                     radius: general?.radius,
                     speed: general?.speed,
                     photoDelayAtStart: general?.photoDelayAtStart,
+                    exitPath,
+                    entryPath,
                     legs,
                     tangentLines,
                     arcs,
