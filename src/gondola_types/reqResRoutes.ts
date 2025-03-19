@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { PathSchema, AngleSchema, RadiusSchema, SourceSchema } from './basicElements';
-import { ArcSchema, FlyZoneSchema, LegSchema, TangentLineSchema, TargetSchema } from './navigationElements';
+import { ArcSchema, FlyZoneSchema, LegSchema, TargetSchema } from './navigationElements';
 
 export const FieldSchema = z.object({
     timestamp: z.string().optional().nullable(),

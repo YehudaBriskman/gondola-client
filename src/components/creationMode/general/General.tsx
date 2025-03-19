@@ -9,7 +9,7 @@ import SaveAndCancel from '../../saveAndCancel/SaveAndCancel';
 import SidebarHeader from '../../sidebarHeader/SidebarHeader';
 import { ALTITUDE, RADIUS, SPEED, WIND_DIRECTION, WIND_SPEED } from '../../../utils/generalDefaultValue';
 import { setGeneral } from '../../../store/slices/generalSlice';
-import { General, GeneralSchema } from '../../../gondola_types/navigationElements';
+import { GeneralSchema } from '../../../gondola_types/navigationElements';
 import { Field } from '../../../gondola_types/reqResRoutes';
 
 type AddNewTargetProps = {
