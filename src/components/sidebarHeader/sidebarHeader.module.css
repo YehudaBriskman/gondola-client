@@ -40,12 +40,14 @@
     text-align: center;
 }
 
-.tooltip{
+.tooltip {
+    height: 3.75rem;
     width: 100%;
     background-color: rgb(76, 76, 76);
     color: var(--main-text-color);
     font-size: 1.25rem;
     cursor: pointer;
+    display: flex;
     justify-content: space-around;
     align-items: center;
     position: absolute;
@@ -54,11 +56,11 @@
     z-index: 100;
 }
 
-.tooltip div{
+.tooltip div {
     justify-content: space-between;
     display: flex;
 }
 
-.tooltip div p{
+.tooltip div p {
     margin: 0 0.5rem;
 }
